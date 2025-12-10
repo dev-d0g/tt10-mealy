@@ -9,37 +9,42 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-This project implements a simple level-sensitive D latch using standard-cell digital logic.
-A D latch is a basic sequential storage element that has two modes of operation:
-
-Transparent mode (clk = 1):
-The output Q continuously follows the input D. Any change on D appears immediately at the output.
-
-Latch / Hold mode (clk = 0):
-The output holds its previous value, ignoring any changes on D.
-
-An active-low asynchronous reset (rst_n) is also included.
-When rst_n = 0, the latch is forced to Q = 0 regardless of the clock or input state.
-
-Only one input pin is used:
-
-ui_in[0] → D
-
-And one output:
-
-uo_out[0] → Q
-
-All unused pins are tied off internally.
+A Mealy machine is a type of finite state machine where the output is
+determined by both the current state and the current input.
 
 ## How to test
 
-| clk | D     | Q behavior             |
-| --- | ----- | ---------------------- |
-| 1   | 1     | Q becomes 1            |
-| 1   | 0     | Q becomes 0            |
-| 0   | 1 → 0 | Q holds previous value |
-| 0   | X     | Q unchanged            |
+A Mealy machine works by producing outputs that depend on both the
+current state and the current input. To check if it's working
+correctly, you need to verify that its outputs change according to this
+principle when different inputs are applied while the machine is in
+different states. This can be done by observing the state transitions
+and corresponding outputs based on a state diagram or transition table.
 
 ## External hardware
 
 NONE
+
+### Inputs
+| Pin | Name |
+|---------|------|
+| ui[0] | x1 |
+| ui[1] | |
+| ui[2] | |
+| ui[3] | |
+| ui[4] | |
+| ui[5] | |
+| ui[6] | |
+| ui[7] | |
+
+### Outputs
+| Pin | Name |
+|---------|------|
+| uo[0] | y[1] |
+| uo[1] | y[2] |
+| uo[2] | y[3] |
+| uo[3] | z1 |
+| uo[4] | |
+| uo[5] | |
+| uo[6] | |
+| uo[7] | 
